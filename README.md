@@ -87,11 +87,11 @@ Cluster: cluster0.9ytpxrr.mongodb.net
 DB:      test  (nota: la documentación indica "Prueba_Tecnica" pero los 
                datos reales están en la DB "test")
 
+```
 > ⚠️ **Nota de seguridad:** Las credenciales de MySQL y MongoDB corresponden 
 > a un entorno de prueba proporcionado por Etraining exclusivamente para esta 
 > evaluación técnica. No son credenciales de producción.
 
-```
 
 | Colección | Documentos | Estructura |
 |---|---|---|
@@ -253,7 +253,7 @@ Ventas En Linea = CALCULATE([Total Ventas],
     gold_dim_sector[tipo_compra_nombre] = "En línea")
 
 Error Prediccion % = DIVIDE(
-    ABS([Ventas Reales Total] - [Ventas Predichas Total]),
+    ABS([Ventas Reales Total] - [Ventas Random Forest]),
     [Ventas Reales Total], 0) * 100
 
 ```
