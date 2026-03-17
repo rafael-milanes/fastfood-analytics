@@ -1,0 +1,69 @@
+table gold_dim_tiendas
+	lineageTag: aff67ec3-59d2-4b24-8562-753b0e38dacd
+	sourceLineageTag: [dbo].[gold_dim_tiendas]
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8730689c-9e37-402f-ae14-a6675e8e8469
+		sourceLineageTag: tienda_id
+		summarizeBy: sum
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a902569c-517f-4c20-852c-ed59c7cffb49
+		sourceLineageTag: region_id
+		summarizeBy: sum
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nombre
+		dataType: string
+		lineageTag: f7291da4-255c-47c6-9ddd-e2d5e466eee5
+		sourceLineageTag: region_nombre
+		summarizeBy: none
+		sourceColumn: region_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b8794f9-2865-4dea-9e5c-4497e8b53035
+		sourceLineageTag: tamano_id
+		summarizeBy: sum
+		sourceColumn: tamano_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados
+		dataType: int64
+		formatString: 0
+		lineageTag: a94aa479-b365-415b-a7b5-08f76dcfb84f
+		sourceLineageTag: empleados
+		summarizeBy: sum
+		sourceColumn: empleados
+
+		annotation SummarizationSetBy = Automatic
+
+	column ubicacion
+		dataType: string
+		lineageTag: c0c13d00-19a8-4f51-b0d1-9c11cb17a2b9
+		sourceLineageTag: ubicacion
+		summarizeBy: none
+		sourceColumn: ubicacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_tiendas = entity
+		mode: directLake
+		source
+			entityName: gold_dim_tiendas
+			schemaName: dbo
+			expressionSource: 'DirectLake - LH_FastFood'
+

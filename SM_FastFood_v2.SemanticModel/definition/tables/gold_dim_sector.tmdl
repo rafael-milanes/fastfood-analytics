@@ -1,0 +1,30 @@
+table gold_dim_sector
+	lineageTag: b9294003-0f09-4847-a335-e0235d471f21
+	sourceLineageTag: [dbo].[gold_dim_sector]
+
+	column tipo_compra_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0efbbc23-8608-4f82-8ef2-1af9b1b2e359
+		sourceLineageTag: tipo_compra_id
+		summarizeBy: sum
+		sourceColumn: tipo_compra_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_compra_nombre
+		dataType: string
+		lineageTag: f41c6dda-f8a0-4931-a7d1-60fb24fcec2c
+		sourceLineageTag: tipo_compra_nombre
+		summarizeBy: none
+		sourceColumn: tipo_compra_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_sector = entity
+		mode: directLake
+		source
+			entityName: gold_dim_sector
+			schemaName: dbo
+			expressionSource: 'DirectLake - LH_FastFood'
+

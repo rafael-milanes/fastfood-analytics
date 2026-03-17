@@ -1,0 +1,71 @@
+table gold_dim_fecha
+	lineageTag: 1e6bf35f-008e-42ad-ad2e-0072250982a5
+	sourceLineageTag: [dbo].[gold_dim_fecha]
+
+	column fecha_dia
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 54c53abd-32f8-4332-8f9b-69e8c7b412b1
+		sourceLineageTag: fecha_dia
+		summarizeBy: none
+		sourceColumn: fecha_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ae19672-ff91-45cb-8856-2d2db932ba4e
+		sourceLineageTag: anio
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 438d45f8-0666-435c-bf39-4fe0e02b0842
+		sourceLineageTag: mes
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia
+		dataType: int64
+		formatString: 0
+		lineageTag: e6ec38f9-551c-4c35-812b-746da43a23de
+		sourceLineageTag: dia
+		summarizeBy: sum
+		sourceColumn: dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_semana
+		dataType: int64
+		formatString: 0
+		lineageTag: f6d7a548-ea32-4703-ae63-e890ed16a324
+		sourceLineageTag: dia_semana
+		summarizeBy: sum
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 23460bf2-c48d-4f03-b3fe-3800c56312e0
+		sourceLineageTag: trimestre
+		summarizeBy: sum
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_fecha = entity
+		mode: directLake
+		source
+			entityName: gold_dim_fecha
+			schemaName: dbo
+			expressionSource: 'DirectLake - LH_FastFood'
+

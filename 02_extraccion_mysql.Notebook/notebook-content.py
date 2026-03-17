@@ -8,12 +8,15 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "9be7fe1b-a1d9-4820-bec3-a90c8f99ed77",
+# META       "default_lakehouse": "a6b801e2-f509-4a7f-b935-070f904e8fbb",
 # META       "default_lakehouse_name": "LH_FastFood",
-# META       "default_lakehouse_workspace_id": "8cac73dd-06dd-4ba7-ae25-a8edbcb324b3",
+# META       "default_lakehouse_workspace_id": "a11ffcd2-afad-43a8-9783-c5e21a790b93",
 # META       "known_lakehouses": [
 # META         {
 # META           "id": "9be7fe1b-a1d9-4820-bec3-a90c8f99ed77"
+# META         },
+# META         {
+# META           "id": "a6b801e2-f509-4a7f-b935-070f904e8fbb"
 # META         }
 # META       ]
 # META     }

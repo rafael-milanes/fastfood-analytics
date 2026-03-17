@@ -1,0 +1,9 @@
+expression 'DirectLake - LH_FastFood' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/a11ffcd2-afad-43a8-9783-c5e21a790b93/a6b801e2-f509-4a7f-b935-070f904e8fbb", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: ebb05c0f-dc02-4896-a012-95a8fd32d022
+
+	annotation PBI_IncludeFutureArtifacts = False
+

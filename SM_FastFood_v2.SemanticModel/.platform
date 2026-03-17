@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SM_FastFood_v2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "925bd1e7-c128-ad16-47e5-7017de877265"
+  }
+}

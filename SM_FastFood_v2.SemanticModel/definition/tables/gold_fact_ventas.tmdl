@@ -1,0 +1,173 @@
+table gold_fact_ventas
+	lineageTag: 089e264c-7256-4436-b456-ab59f81227bf
+	sourceLineageTag: [dbo].[gold_fact_ventas]
+
+	column venta_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c922ed82-832c-476e-a3c0-820c85cc364f
+		sourceLineageTag: venta_id
+		summarizeBy: sum
+		sourceColumn: venta_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f1c93be-04b9-48bd-9026-91ba6f6541b6
+		sourceLineageTag: tienda_id
+		summarizeBy: sum
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column factura_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 67548c09-19f1-4913-9226-d6027accd596
+		sourceLineageTag: factura_id
+		summarizeBy: sum
+		sourceColumn: factura_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_dia
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2f7cae7f-d5c7-4622-b3a8-63782fee3e07
+		sourceLineageTag: fecha_dia
+		summarizeBy: none
+		sourceColumn: fecha_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 35dc8fbf-687b-44ba-bc0e-1edd0345e49e
+		sourceLineageTag: producto_id
+		summarizeBy: sum
+		sourceColumn: producto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_compra_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 81b19bf2-6914-415f-9861-f24bfafb2741
+		sourceLineageTag: tipo_compra_id
+		summarizeBy: sum
+		sourceColumn: tipo_compra_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 43faa73e-af99-467b-a981-b4e730930634
+		sourceLineageTag: sensor_id
+		summarizeBy: sum
+		sourceColumn: sensor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_nombre
+		dataType: string
+		lineageTag: 6b9214da-8da2-4a20-8cf2-95a972d275c5
+		sourceLineageTag: sensor_nombre
+		summarizeBy: none
+		sourceColumn: sensor_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column distancia_km
+		dataType: double
+		lineageTag: 2f0db791-2a3b-4f96-88a0-964e63bd7f29
+		sourceLineageTag: distancia_km
+		summarizeBy: sum
+		sourceColumn: distancia_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_promedio
+		dataType: double
+		lineageTag: a99031be-2eec-465a-b0ab-eea4c64deca5
+		sourceLineageTag: precip_promedio
+		summarizeBy: sum
+		sourceColumn: precip_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_max
+		dataType: double
+		lineageTag: 81108a2f-f353-4ac2-83c7-a481f7aabbb7
+		sourceLineageTag: precip_max
+		summarizeBy: sum
+		sourceColumn: precip_max
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_min
+		dataType: double
+		lineageTag: 8459ca46-bb67-4863-994b-ca4d7ffe3fe8
+		sourceLineageTag: precip_min
+		summarizeBy: sum
+		sourceColumn: precip_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cbd3c0bb-be99-4a48-93b5-b85fd823191d
+		sourceLineageTag: region_id
+		summarizeBy: sum
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nombre
+		dataType: string
+		lineageTag: acba3827-7600-4256-8ce5-f9783c46d49e
+		sourceLineageTag: region_nombre
+		summarizeBy: none
+		sourceColumn: region_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0894e174-e718-4807-bae2-b768cddd9c56
+		sourceLineageTag: tamano_id
+		summarizeBy: sum
+		sourceColumn: tamano_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ad2710c-a83a-4f9f-b33d-455802964aa4
+		sourceLineageTag: empleados
+		summarizeBy: sum
+		sourceColumn: empleados
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_ventas = entity
+		mode: directLake
+		source
+			entityName: gold_fact_ventas
+			schemaName: dbo
+			expressionSource: 'DirectLake - LH_FastFood'
+
