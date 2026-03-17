@@ -341,5 +341,6 @@ fastfood-analytics/
 ├── 📓 04_silver_transformacion.ipynb
 ├── 📓 05_gold_modelo_predictivo.ipynb
 ├── 📊 RPT_FastFood_Analytics.pdf
+├── 📊 Print.pdf
 └── 📄 README.md
 ```
