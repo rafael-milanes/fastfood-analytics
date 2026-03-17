@@ -231,11 +231,11 @@ ventas_reales, ventas_predichas`
 
 **Medidas DAX creadas en tabla `_Medidas`:**
 ```dax
-Total Ventas = COUNTROWS(gold_fact_ventas)
+Cantidad Ventas = COUNTROWS(gold_fact_ventas)
 
 Ventas Reales Total = SUM(gold_predicciones[ventas_reales])
 
-Ventas Predichas Total = SUM(gold_predicciones[ventas_predichas])
+Ventas Random Forest = SUM(gold_predicciones[ventas_predichas])
 
 Precipitacion Promedio = AVERAGE(gold_fact_ventas[precip_promedio])
 
