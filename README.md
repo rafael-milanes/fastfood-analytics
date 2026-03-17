@@ -233,6 +233,10 @@ ventas_reales, ventas_predichas`
 ```dax
 Total Ventas = COUNTROWS(gold_fact_ventas)
 
+Ventas Reales Total = SUM(gold_predicciones[ventas_reales])
+
+Ventas Predichas Total = SUM(gold_predicciones[ventas_predichas])
+
 Precipitacion Promedio = AVERAGE(gold_fact_ventas[precip_promedio])
 
 Distancia Sensor Promedio = AVERAGE(gold_fact_ventas[distancia_km])
@@ -246,7 +250,20 @@ Ventas En Linea = CALCULATE([Total Ventas],
 Error Prediccion % = DIVIDE(
     ABS([Ventas Reales Total] - [Ventas Predichas Total]),
     [Ventas Reales Total], 0) * 100
+
 ```
+**Parámetro de campo — tabla `Parámetro`:**
+```dax
+Parámetro = {
+    ("dia_semana", NAMEOF('gold_dim_fecha'[dia_semana]), 0),
+    ("mes-año",    NAMEOF('gold_dim_fecha'[fecha_dia]),  1)
+}
+```
+Permite al usuario del reporte alternar dinámicamente el eje X del gráfico 
+de ventas entre vista por **día de la semana** y vista por **mes-año**, 
+sin necesidad de duplicar el visual. Es una técnica avanzada de Power BI 
+que mejora la experiencia del usuario y reduce el número de visuales en 
+el lienzo.
 
 **Relaciones del modelo (todas *:1):**
 - `gold_fact_ventas[fecha_dia]` → `gold_dim_fecha[fecha_dia]`
