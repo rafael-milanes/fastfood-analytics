@@ -86,6 +86,11 @@ Database: FastFood
 Cluster: cluster0.9ytpxrr.mongodb.net
 DB:      test  (nota: la documentación indica "Prueba_Tecnica" pero los 
                datos reales están en la DB "test")
+
+> ⚠️ **Nota de seguridad:** Las credenciales de MySQL y MongoDB corresponden 
+> a un entorno de prueba proporcionado por Etraining exclusivamente para esta 
+> evaluación técnica. No son credenciales de producción.
+
 ```
 
 | Colección | Documentos | Estructura |
