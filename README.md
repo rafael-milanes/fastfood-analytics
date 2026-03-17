@@ -246,10 +246,10 @@ Precipitacion Promedio = AVERAGE(gold_fact_ventas[precip_promedio])
 
 Distancia Sensor Promedio = AVERAGE(gold_fact_ventas[distancia_km])
 
-Ventas Presencial = CALCULATE([Total Ventas],
+Ventas Presencial = CALCULATE([Cantidad Ventas],
     gold_dim_sector[tipo_compra_nombre] = "Presencial")
 
-Ventas En Linea = CALCULATE([Total Ventas],
+Ventas En Linea = CALCULATE([Cantidad Ventas],
     gold_dim_sector[tipo_compra_nombre] = "En línea")
 
 Error Prediccion % = DIVIDE(
@@ -340,5 +340,6 @@ fastfood-analytics/
 ├── 📓 03_extraccion_mongodb.ipynb
 ├── 📓 04_silver_transformacion.ipynb
 ├── 📓 05_gold_modelo_predictivo.ipynb
+├── 📊 RPT_FastFood_Analytics.pdf
 └── 📄 README.md
 ```
