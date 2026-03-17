@@ -1,0 +1,77 @@
+table gold_dim_tiendas
+	lineageTag: 4f4791e4-600a-4f0d-9042-95699ba79008
+	sourceLineageTag: [dbo].[gold_dim_tiendas]
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 5c74d6a4-9807-458f-872b-3c4c6bcf0081
+		sourceLineageTag: tienda_id
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 13c1904f-2765-48b1-a7d8-e09c9490e683
+		sourceLineageTag: region_id
+		summarizeBy: sum
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nombre
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 25404313-bbfc-4871-b338-cb931992bf56
+		sourceLineageTag: region_nombre
+		summarizeBy: none
+		sourceColumn: region_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 97d00eb1-bc7e-454d-966e-60de68d4b68a
+		sourceLineageTag: tamano_id
+		summarizeBy: sum
+		sourceColumn: tamano_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 00cc2f2b-1a54-47b3-8025-ff0f2044788f
+		sourceLineageTag: empleados
+		summarizeBy: sum
+		sourceColumn: empleados
+
+		annotation SummarizationSetBy = Automatic
+
+	column ubicacion
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 12df89d0-c874-41a3-a5c5-febfbbf5ee1e
+		sourceLineageTag: ubicacion
+		summarizeBy: none
+		sourceColumn: ubicacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_tiendas = entity
+		mode: directLake
+		source
+			entityName: gold_dim_tiendas
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

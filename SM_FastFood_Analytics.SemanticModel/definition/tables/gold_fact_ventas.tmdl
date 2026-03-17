@@ -1,0 +1,191 @@
+table gold_fact_ventas
+	lineageTag: e271f624-6e15-429e-b91f-744bfa0c8e6d
+	sourceLineageTag: [dbo].[gold_fact_ventas]
+
+	column venta_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 20f5b30c-4dd8-4500-b503-7eee5ab3cda0
+		sourceLineageTag: venta_id
+		summarizeBy: sum
+		sourceColumn: venta_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7eb1c37f-7452-4c72-a3e5-9f1975211749
+		sourceLineageTag: tienda_id
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column factura_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4427d21b-a5e8-459e-8498-d21149eff43c
+		sourceLineageTag: factura_id
+		summarizeBy: sum
+		sourceColumn: factura_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_dia
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: efdcb6db-020e-4cc7-bda5-0c7445194da8
+		sourceLineageTag: fecha_dia
+		summarizeBy: none
+		sourceColumn: fecha_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3194c950-1ef8-4092-964a-c8e73e04cefa
+		sourceLineageTag: producto_id
+		summarizeBy: none
+		sourceColumn: producto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_compra_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2b63f037-6436-4566-ab0b-392b73409231
+		sourceLineageTag: tipo_compra_id
+		summarizeBy: none
+		sourceColumn: tipo_compra_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3ffde17c-f0c6-42a5-987c-fa5702fba29d
+		sourceLineageTag: sensor_id
+		summarizeBy: sum
+		sourceColumn: sensor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sensor_nombre
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a778c23-224d-47c3-b45a-1207308f94d6
+		sourceLineageTag: sensor_nombre
+		summarizeBy: none
+		sourceColumn: sensor_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column distancia_km
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 790a12c4-3846-4ae3-88db-4b77d5b8393f
+		sourceLineageTag: distancia_km
+		summarizeBy: sum
+		sourceColumn: distancia_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_promedio
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 01af7409-9d4b-4c54-8844-3500e255b0e9
+		sourceLineageTag: precip_promedio
+		summarizeBy: sum
+		sourceColumn: precip_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_max
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f5cdb0ba-470b-4633-bbbc-21c11250aa97
+		sourceLineageTag: precip_max
+		summarizeBy: sum
+		sourceColumn: precip_max
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_min
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0473c7a3-93b4-4378-8931-443e2bc8ff47
+		sourceLineageTag: precip_min
+		summarizeBy: sum
+		sourceColumn: precip_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: bab63b7e-3e05-4725-bd0e-938b8032e5d7
+		sourceLineageTag: region_id
+		summarizeBy: sum
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nombre
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a3bfa2cf-7529-47a8-b503-d7a986adb735
+		sourceLineageTag: region_nombre
+		summarizeBy: none
+		sourceColumn: region_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: dae01a85-cea4-4756-919a-30991349c731
+		sourceLineageTag: tamano_id
+		summarizeBy: sum
+		sourceColumn: tamano_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2cebab5b-965f-47ab-81e5-cad34dc56286
+		sourceLineageTag: empleados
+		summarizeBy: sum
+		sourceColumn: empleados
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_ventas = entity
+		mode: directLake
+		source
+			entityName: gold_fact_ventas
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,79 @@
+table gold_dim_fecha
+	lineageTag: 2879a25f-2b2d-47fc-a225-28d3f3e2481a
+	sourceLineageTag: [dbo].[gold_dim_fecha]
+
+	column fecha_dia
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 5dd28fad-8b66-4a18-b919-3680dd33456a
+		sourceLineageTag: fecha_dia
+		summarizeBy: none
+		sourceColumn: fecha_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c563025e-2758-4b63-8cb8-8f626cbbeea4
+		sourceLineageTag: anio
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8b0ecc06-cb24-4e63-aa3e-7409609a1a3a
+		sourceLineageTag: mes
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9445a55a-85f2-4855-9f20-dc0fd1f05ab7
+		sourceLineageTag: dia
+		summarizeBy: sum
+		sourceColumn: dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_semana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cb4afb7b-47b1-48cd-a774-3f970f7abf67
+		sourceLineageTag: dia_semana
+		summarizeBy: sum
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d421ce5b-539a-4916-9ffc-de4d15b5a426
+		sourceLineageTag: trimestre
+		summarizeBy: sum
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_fecha = entity
+		mode: directLake
+		source
+			entityName: gold_dim_fecha
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,34 @@
+table gold_dim_sector
+	lineageTag: 293def16-836a-4ee6-a6db-bd483291fa9d
+	sourceLineageTag: [dbo].[gold_dim_sector]
+
+	column tipo_compra_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e474f8b8-c166-4873-8578-48de2f08c5a7
+		sourceLineageTag: tipo_compra_id
+		summarizeBy: none
+		sourceColumn: tipo_compra_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_compra_nombre
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e09ff107-eb47-4c7d-849a-41e2c10ae28b
+		sourceLineageTag: tipo_compra_nombre
+		summarizeBy: none
+		sourceColumn: tipo_compra_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_sector = entity
+		mode: directLake
+		source
+			entityName: gold_dim_sector
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

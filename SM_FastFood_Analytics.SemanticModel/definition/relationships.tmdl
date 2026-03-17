@@ -1,0 +1,24 @@
+relationship c72f6eec-f967-1ac5-dfc1-1f842807d29e
+	fromColumn: gold_fact_ventas.tienda_id
+	toColumn: gold_dim_tiendas.tienda_id
+
+relationship 1a2af256-e5db-70ba-f145-89157cd0ca01
+	fromColumn: gold_fact_ventas.fecha_dia
+	toColumn: gold_dim_fecha.fecha_dia
+
+relationship f5ce5d8d-95a0-c335-ca6d-56f0363564dc
+	fromColumn: gold_fact_ventas.producto_id
+	toColumn: gold_dim_producto.producto_id
+
+relationship cb81fe79-c48b-749f-c9fd-a8c46e464db6
+	fromColumn: gold_fact_ventas.tipo_compra_id
+	toColumn: gold_dim_sector.tipo_compra_id
+
+relationship d157307f-e449-acd6-ae00-b4887927f54f
+	fromColumn: gold_predicciones.tienda_id
+	toColumn: gold_dim_tiendas.tienda_id
+
+relationship 1f19aadd-f3c2-fdbb-b397-1258b1264f39
+	fromColumn: gold_predicciones.fecha_dia
+	toColumn: gold_dim_fecha.fecha_dia
+

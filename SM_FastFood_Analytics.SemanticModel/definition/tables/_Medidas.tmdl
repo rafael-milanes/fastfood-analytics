@@ -1,0 +1,68 @@
+table _Medidas
+	lineageTag: 445cb647-29aa-495d-902b-61ffa4f7426f
+
+	measure 'Cantidad Ventas' = COUNTROWS(gold_fact_ventas)
+		formatString: 0
+		lineageTag: 7b64a869-9656-4543-8934-536932775103
+
+	measure 'Precipitacion Promedio' = AVERAGE(gold_fact_ventas[precip_promedio])
+		lineageTag: 5768d6ee-24a1-4aa7-89ce-1ac592bef762
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Random Forest' = SUM(gold_predicciones[ventas_predichas])
+		formatString: 0
+		lineageTag: 3f6ee89a-e539-47bb-8d00-228a9f388d5c
+
+	measure 'Ventas Reales Total' = SUM(gold_predicciones[ventas_reales])
+		formatString: 0
+		lineageTag: f8d49393-b7d3-4c98-9e7a-eab98498fde4
+
+	measure 'Error Prediccion %' =
+			
+			DIVIDE(
+			    ABS([Ventas Reales Total] - [Ventas Random Forest]),
+			    [Ventas Reales Total],
+			    0
+			) * 100
+		lineageTag: 361ee43e-67d7-4ced-ab8a-abb12cdbec65
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Distancia Sensor Promedio (km)' = AVERAGE(gold_fact_ventas[distancia_km])
+		lineageTag: 3ce5d117-3de5-4ff2-8267-e26167e97756
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas En Linea' =
+			
+			CALCULATE(
+			    [Cantidad Ventas],
+			    gold_dim_sector[tipo_compra_nombre] = "En línea"
+			)
+		formatString: 0
+		lineageTag: 6bc24f49-f9d1-4bcc-ab1f-b3ca519e3703
+
+	measure 'Ventas Presencial' =
+			
+			CALCULATE(
+			    [Cantidad Ventas],
+			    gold_dim_sector[tipo_compra_nombre] = "Presencial"
+			)
+		formatString: 0
+		lineageTag: 9ecdf150-6e3e-415d-81f2-8b4b09319399
+
+	column ⚡DAX
+		lineageTag: ef8c4f01-3bfc-4466-9c6d-54017cf66e5c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [⚡DAX]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source = DATATABLE("⚡DAX", STRING, {{""}})
+
+	annotation PBI_Id = bfed7dd9d8c949b8beb806e06cf7db84
+

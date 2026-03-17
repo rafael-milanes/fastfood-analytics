@@ -1,0 +1,34 @@
+table gold_dim_producto
+	lineageTag: 6b97487a-c3d4-41a8-906d-63e617ca2268
+	sourceLineageTag: [dbo].[gold_dim_producto]
+
+	column producto_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d6ebb848-d61f-4ffc-8149-d88071e4ad91
+		sourceLineageTag: producto_id
+		summarizeBy: none
+		sourceColumn: producto_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_nombre
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: cea26f0e-0e34-4ea1-8c41-10ad0c54dbb7
+		sourceLineageTag: producto_nombre
+		summarizeBy: none
+		sourceColumn: producto_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_producto = entity
+		mode: directLake
+		source
+			entityName: gold_dim_producto
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

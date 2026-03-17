@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLExperiment",
+    "displayName": "05_gold_modelo_predictivo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "13f45515-af0b-ad97-45e1-36dfd7d432e3"
+  }
+}

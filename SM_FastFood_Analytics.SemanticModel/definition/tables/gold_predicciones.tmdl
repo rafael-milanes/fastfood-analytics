@@ -1,0 +1,104 @@
+table gold_predicciones
+	lineageTag: 3ceb729a-b55c-4dac-851d-d18120d924ae
+	sourceLineageTag: [dbo].[gold_predicciones]
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 55db7118-7e75-4f0e-8205-e8f2f460056d
+		sourceLineageTag: tienda_id
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_dia
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: b1db1368-3eb3-4e81-a59e-da051f671a4d
+		sourceLineageTag: fecha_dia
+		summarizeBy: none
+		sourceColumn: fecha_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column precip_promedio
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e4ea6794-2e0a-45b3-b86b-9065d204a545
+		sourceLineageTag: precip_promedio
+		summarizeBy: sum
+		sourceColumn: precip_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column precip_max
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 74e6f3a8-dbb4-4ba9-8fb2-6c05c0fd5490
+		sourceLineageTag: precip_max
+		summarizeBy: sum
+		sourceColumn: precip_max
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dia_semana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8f98e0db-1cc1-45c5-a0cb-6c39e7bb2c0c
+		sourceLineageTag: dia_semana
+		summarizeBy: sum
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 893a065f-d018-40ea-bd8c-8b5937e97fc3
+		sourceLineageTag: mes
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column ventas_reales
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 85cf62c8-1d6f-4749-b3ff-6824a90991b3
+		sourceLineageTag: ventas_reales
+		summarizeBy: sum
+		sourceColumn: ventas_reales
+
+		annotation SummarizationSetBy = Automatic
+
+	column ventas_predichas
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 7a20eeb4-2342-4e21-9f22-7faadd729079
+		sourceLineageTag: ventas_predichas
+		summarizeBy: sum
+		sourceColumn: ventas_predichas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_predicciones = entity
+		mode: directLake
+		source
+			entityName: gold_predicciones
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,48 @@
+table Parámetro
+	lineageTag: 9a1fe128-7962-47aa-8b54-247cf11de463
+
+	column Parámetro
+		lineageTag: b1580e14-9ec7-4299-b3ee-5018ac9a8969
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parámetro Orden'
+
+		relatedColumnDetails
+			groupByColumn: 'Parámetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parámetro Campos'
+		isHidden
+		lineageTag: 6276c2f7-3e31-4ca0-9db7-ff4f128ef50c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parámetro Orden'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parámetro Orden'
+		isHidden
+		formatString: 0
+		lineageTag: 8e00c959-b103-4423-9a80-9b82735f460b
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parámetro = calculated
+		mode: import
+		source =
+				{
+				    ("dia_semana", NAMEOF('gold_dim_fecha'[dia_semana]), 0),
+				    ("mes-año", NAMEOF('gold_dim_fecha'[fecha_dia]), 1)
+				}
+
+	annotation PBI_Id = e0eebfd6dc2c41b7ab2eb8f765f9f4ac
+
